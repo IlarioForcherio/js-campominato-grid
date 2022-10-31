@@ -1,64 +1,62 @@
-
-/*
-Consegna
-L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
-Ogni cella ha un numero progressivo, da 1 a 100.
-Ci saranno quindi 10 caselle per ognuna delle 10 righe.
-Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
-
-Bonus
-Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
-- con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-- con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
-- con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
-*/
-
-
-//funzione che fa partire gioco al click
-//funzione che crea 100 div 
-//funzione che crea 100 numeri progressivi 
- //funzione che fa attivare il gioco al play
+// L'utente clicca su un bottone che genererà una griglia di gioco quadrata.
+// Ogni cella ha un numero progressivo, da 1 a 100.
+// Ci saranno quindi 10 caselle per ognuna delle 10 righe.
+// Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
 
 
 
-// richiamo la  gliglia  da html
-
-const gligliaHtml = document.getElementById('griglia');
-
-// creo una funzione per creare un div quadrato dentro la griglia
-
-function creazioneQuadrato(){
-   const div = document.createElement('div');
-   div.classList.add('quadrato');
-   return div;
-}
-
-//inserisci l'elemeno qadrato appena creato all'intenro della griglia
-//appendo l'elemento creato nela griglia
-//griglia.append(creazioneQuadrato());
-
-
-//crea 64 quadrati
-
-
-for(let i = 0 ; i<100 ; i++){
-// creo una variabile che contiene quadrato 
-    let elementoCorrente = creazioneQuadrato();
-
-    //tutti e 64 gli elmenti hanno un evento al click
-    elementoCorrente.addEventListener('click', function(){
+function playGame(){
+    //richiamo l'elemento html che è il div "grid-cnt"
+    let gridContainerHtml = document.getElementById('grid-cnt')
+    //funzione crea quadrato
+    //questa funzione crea un quadrato con createElement  e associa una classe ccon classList.add
+    
+    
+    //chiedere perchè senza questo crea la griglia tante volte quante clicchi
+    gridContainerHtml.innerHTML ="";
+    
+    function creaBox(){
+        
+    const box = document.createElement('div');
+    box.classList.add('square');
+    
+    return box;
+    
+    
+    }
+    console.log(creaBox());
+    
+    //inserimento box dentro alla griglia
+    //appendo la funzione perchè se appendessi "box" non si potrebbe fare in quanto box è statoi inzializzato dentro alla funzione di creazione quadrato
+    //per richiamare una variabile nata dentro a una parentesi quadra dovrei inizializzarla come variabile globale
+    
+    //inserimento box dentro alla griglia
+    // gridContainerHtml.append(creaBox());
+    
+    
+    // per creare 100 box, devo ciclare la funzione crea quadrato che è stata appesa al div "grid-cnt"
+    for( i=1; i<101 ; i++ ){
+        
+        const box100 = creaBox();
+         //ho creato una variabile che contiene la funzione che crea un box 
+         //questa variabile è box100 perchè è la funzione crea un quadrato ciclata per 100 volte
+    
+         box100.addEventListener('click', function(){
         //dentro la funzione metto this
         //classe active, toggle(add e remove insieme)
         //con this capisco in quale quadrato sto cliccando
         this.classList.toggle('active')
+    
     })
-
-    //ogni elemeno viene appeso dento alla griglia
-    griglia.append(elementoCorrente);
-
-}
-
-console.log(griglia);s
+    console.log( box100 )
+    
+       // con l'innerHTML ho inserito "i" dentro ai box100, (cioè il numero corrispondente all'iterazione) 
+       box100.innerHTML = i ; 
+       gridContainerHtml.append(box100);
+    //con append ho appeso il tutto al div "grid-cnt"
+    }
+    }
+    
 
 
 
