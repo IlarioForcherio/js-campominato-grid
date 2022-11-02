@@ -18,7 +18,7 @@ function playGame(){
     function creaBox(){
         
     const box = document.createElement('div');
-    box.classList.add('square');
+    box.classList.add('square-100');
     
     return box;
     
@@ -35,15 +35,17 @@ function playGame(){
     
     
     // per creare 100 box, devo ciclare la funzione crea quadrato che è stata appesa al div "grid-cnt"
-    for( i=1; i<101 ; i++ ){
+    for( i=1; i<=100 ; i++ ){
         
         const box100 = creaBox();
          //ho creato una variabile che contiene la funzione che crea un box 
          //questa variabile è box100 perchè è la funzione crea un quadrato ciclata per 100 volte
     
+
          box100.addEventListener('click', function(){
         //dentro la funzione metto this
-        //classe active, toggle(add e remove insieme)
+        //aggiungo la  classe active
+        // alla classe active aggiungo toggle(add e remove insieme)
         //con this capisco in quale quadrato sto cliccando
         this.classList.toggle('active')
     

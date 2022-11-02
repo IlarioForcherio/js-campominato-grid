@@ -16,11 +16,20 @@
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  height: 10%;
+  height: 20%;
   }
+
+  
+
+  .logo img{
+    width: 8%;
+    object-fit: contain;
+  }
+
   
   main{
-    height: 80%;
+    background-color: rgb(127, 255, 213);
+    height: 70%;
   }
   
   
@@ -33,19 +42,40 @@
     
   
   }
+
+ 
   
-  .square{      
+  .square-100{      
     width: calc( 100% / 10 );
     border: 1px solid black;
     aspect-ratio: 1/1;
     
   }
+
+  .square-81{      
+    width: calc( 100% / 9 );
+    border: 1px solid black;
+    aspect-ratio: 1/1;
+    
+  }
+
+
+  .square-49{      
+    width: calc( 100% / 7 );
+    border: 1px solid black;
+    aspect-ratio: 1/1;
+    
+  }
+
+
   
   .active {
     background-color: lightgreen;
   }
   
   footer{
-    background-color: brown;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
     height: 10%;
   }
